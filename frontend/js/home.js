@@ -18,7 +18,7 @@ const iconSvg = (name) => {
 };
 
 function roomCardTemplate(room) {
-  const img = room.images && room.images[0] ? room.images[0] : 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=800';
+  const img = room.images && room.images[0] ? room.images[0] : 'https://plus.unsplash.com/premium_photo-1661884238187-1c274b3c3413?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D';
   return `
     <div class="room-card" data-reveal>
       <div class="room-card-img">
