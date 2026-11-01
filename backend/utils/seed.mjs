@@ -64,7 +64,7 @@ const rooms = [
       'City View',
     ],
     images: [
-      'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1200',
+      'https://plus.unsplash.com/premium_photo-1661884238187-1c274b3c3413?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
       'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1200',
     ],
     totalRooms: 6,
