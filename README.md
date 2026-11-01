@@ -34,7 +34,6 @@ The project was developed as part of my practical learning and experience in web
 | HTML | Structures the website pages |
 | CSS | Controls the appearance and layout |
 | JavaScript | Adds interactive features |
-| Bootstrap | Helps create responsive layouts |
 | Node.js | Runs the backend application |
 | Express.js | Handles website requests and routes |
 | MongoDB | Stores the project's information |
