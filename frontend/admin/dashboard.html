@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard — Palace City Hotel</title>
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a href="../index.html" class="logo">Palace<span>City</span></a>
+    <nav class="admin-nav" id="adminNav">
+      <button data-panel="overview" class="active">Overview</button>
+      <button data-panel="rooms">Rooms</button>
+      <button data-panel="bookings">Bookings</button>
+      <button data-panel="customers">Customers</button>
+      <button data-panel="services">Services</button>
+      <button data-panel="messages">Messages</button>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">Log Out</button>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1 id="panelTitle">Overview</h1>
+      <span id="adminName" style="color:var(--charcoal-soft);font-size:0.9rem;"></span>
+    </div>
+
+    <!-- Overview -->
+    <section class="admin-panel active" id="panel-overview">
+      <div class="admin-stats">
+        <div class="stat-card"><span class="label">Total Rooms</span><strong id="statRooms">—</strong></div>
+        <div class="stat-card"><span class="label">Total Bookings</span><strong id="statBookings">—</strong></div>
+        <div class="stat-card"><span class="label">Pending Bookings</span><strong id="statPending">—</strong></div>
+        <div class="stat-card"><span class="label">Unread Messages</span><strong id="statMessages">—</strong></div>
+      </div>
+      <div class="admin-panel active" style="padding:0;box-shadow:none;">
+        <p style="color:var(--charcoal-soft);">Use the menu on the left to manage rooms, review bookings,
+          view guest details, update hotel services, or read messages sent through the contact form.</p>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section class="admin-panel" id="panel-rooms">
+      <div class="panel-head">
+        <h3>Manage Rooms</h3>
+        <button class="btn btn-primary" id="addRoomBtn">+ Add Room</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Image</th><th>Name</th><th>Type</th><th>Price</th><th>Capacity</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="roomsTableBody">
+            <tr><td colspan="7">Loading rooms…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Bookings -->
+    <section class="admin-panel" id="panel-bookings">
+      <div class="panel-head">
+        <h3>All Bookings</h3>
+        <select id="bookingStatusFilter">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="confirmed">Confirmed</option>
+          <option value="checked-in">Checked In</option>
+          <option value="checked-out">Checked Out</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Guest</th><th>Room</th><th>Check-in</th><th>Check-out</th><th>Total</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="bookingsTableBody">
+            <tr><td colspan="7">Loading bookings…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Customers -->
+    <section class="admin-panel" id="panel-customers">
+      <div class="panel-head"><h3>Guest Directory</h3></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Country</th><th>Joined</th></tr></thead>
+          <tbody id="customersTableBody">
+            <tr><td colspan="5">Loading customers…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="admin-panel" id="panel-services">
+      <div class="panel-head">
+        <h3>Hotel Services</h3>
+        <button class="btn btn-primary" id="addServiceBtn">+ Add Service</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Description</th><th>Active</th><th>Actions</th></tr></thead>
+          <tbody id="servicesTableBody">
+            <tr><td colspan="4">Loading services…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Messages -->
+    <section class="admin-panel" id="panel-messages">
+      <div class="panel-head"><h3>Contact Messages</h3></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Received</th><th>Actions</th></tr></thead>
+          <tbody id="messagesTableBody">
+            <tr><td colspan="6">Loading messages…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Room Modal -->
+<div class="modal-overlay" id="roomModal">
+  <div class="modal-box">
+    <h3 id="roomModalTitle">Add Room</h3>
+    <form id="roomForm">
+      <input type="hidden" id="roomId" />
+      <div class="form-row">
+        <div class="form-group"><label for="roomName">Room Name *</label><input type="text" id="roomName" required /></div>
+        <div class="form-group">
+          <label for="roomType">Type *</label>
+          <select id="roomType" required>
+            <option>Standard</option>
+            <option>Deluxe</option>
+            <option>Executive Suite</option>
+            <option>Presidential Suite</option>
+            <option>Family Room</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label for="roomDescription">Description *</label><textarea id="roomDescription" required></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label for="roomPrice">Price / Night (₦) *</label><input type="number" id="roomPrice" min="0" step="1" placeholder="e.g. 220000" required /></div>
+        <div class="form-group"><label for="roomBedType">Bed Type</label><input type="text" id="roomBedType" placeholder="e.g. King Bed" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="roomAdults">Adult Capacity *</label><input type="number" id="roomAdults" min="1" required /></div>
+        <div class="form-group"><label for="roomChildren">Children Capacity</label><input type="number" id="roomChildren" min="0" value="0" /></div>
+      </div>
+      <div class="form-group"><label for="roomFacilities">Facilities (comma separated)</label><input type="text" id="roomFacilities" placeholder="Free Wi-Fi, Air Conditioning, Mini Bar" /></div>
+      <div class="form-group"><label for="roomImages">Image URLs (comma separated)</label><input type="text" id="roomImages" placeholder="https://...jpg, https://...jpg" /></div>
+      <div class="form-group">
+        <label for="roomFeatured">Featured on Homepage?</label>
+        <select id="roomFeatured"><option value="false">No</option><option value="true">Yes</option></select>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">Save Room</button>
+        <button type="button" class="btn btn-outline-dark" id="cancelRoomModal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Service Modal -->
+<div class="modal-overlay" id="serviceModal">
+  <div class="modal-box">
+    <h3 id="serviceModalTitle">Add Service</h3>
+    <form id="serviceForm">
+      <input type="hidden" id="serviceId" />
+      <div class="form-group"><label for="serviceName">Service Name *</label><input type="text" id="serviceName" required /></div>
+      <div class="form-group"><label for="serviceDescription">Description *</label><textarea id="serviceDescription" required></textarea></div>
+      <div class="form-group">
+        <label for="serviceIcon">Icon</label>
+        <select id="serviceIcon">
+          <option value="utensils">Restaurant</option>
+          <option value="waves">Pool</option>
+          <option value="wifi">Wi-Fi</option>
+          <option value="bell">Room Service</option>
+          <option value="users">Events</option>
+          <option value="car">Parking</option>
+          <option value="shirt">Laundry</option>
+          <option value="dumbbell">Gym</option>
+          <option value="star">General</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">Save Service</button>
+        <button type="button" class="btn btn-outline-dark" id="cancelServiceModal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

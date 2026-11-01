@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us — Palace City Hotel</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+<body>
+
+<header class="navbar solid" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Palace<span>City</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="rooms.html" data-page="rooms.html">Rooms</a>
+      <a href="services.html" data-page="services.html">Services</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="gallery.html" data-page="gallery.html">Gallery</a>
+      <a href="contact.html" data-page="contact.html" class="active">Contact</a>
+      <a href="booking.html" class="btn btn-gold">Book Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> / Contact</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Get In Touch</span>
+        <h2 style="margin-bottom:30px;">We'd Love to Hear From You</h2>
+
+        <div class="contact-info-item">
+          <div class="icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4 style="color:var(--deep-emerald);margin-bottom:4px;">Address</h4>
+            <p>12 Marina Avenue, Victoria Island, Lagos, Nigeria</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h4 style="color:var(--deep-emerald);margin-bottom:4px;">Phone</h4>
+            <p>+234 800 123 4567</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div>
+            <h4 style="color:var(--deep-emerald);margin-bottom:4px;">Email</h4>
+            <p>info@palacecityhotel.com</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h4 style="color:var(--deep-emerald);margin-bottom:4px;">Front Desk Hours</h4>
+            <p>Open 24 hours, every day</p>
+          </div>
+        </div>
+
+        <div class="footer-social" style="margin-top:30px;">
+          <a href="#" aria-label="Facebook" style="border-color:rgba(14,59,46,0.2);color:var(--deep-emerald);"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" style="border-color:rgba(14,59,46,0.2);color:var(--deep-emerald);"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter" style="border-color:rgba(14,59,46,0.2);color:var(--deep-emerald);"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h2 style="margin-bottom:26px;">Send Us a Message</h2>
+
+        <div class="alert alert-success" id="successAlert">
+          Thank you! Your message has been sent — our team will respond shortly.
+        </div>
+        <div class="alert alert-error" id="errorAlert"></div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" required />
+              <div class="field-error">Please enter your name.</div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" required />
+              <div class="field-error">Please enter a valid email address.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="e.g. Booking Enquiry" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" required placeholder="How can we help?"></textarea>
+            <div class="field-error">Please enter a message.</div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=Victoria%20Island%2C%20Lagos&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Palace City Hotel location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span class="current-year"></span> Palace City Hotel. All rights reserved.</span>
+      <span><a href="admin/login.html">Admin Login</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

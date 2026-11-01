@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Palace City Hotel</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="navbar solid" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Palace<span>City</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="rooms.html" data-page="rooms.html">Rooms</a>
+      <a href="services.html" data-page="services.html">Services</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="gallery.html" data-page="gallery.html" class="active">Gallery</a>
+      <a href="contact.html" data-page="contact.html">Contact</a>
+      <a href="booking.html" class="btn btn-gold">Book Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Gallery</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> / Gallery</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="gallery-filters" id="galleryFilters">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="exterior">Exterior</button>
+      <button data-filter="rooms">Rooms</button>
+      <button data-filter="restaurant">Restaurant</button>
+      <button data-filter="facilities">Facilities</button>
+      <button data-filter="events">Events</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item wide tall" data-cat="exterior" data-reveal>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200" alt="Hotel exterior" />
+        <div class="gallery-caption">Hotel Exterior</div>
+      </div>
+      <div class="gallery-item" data-cat="rooms" data-reveal>
+        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=800" alt="Standard room" />
+        <div class="gallery-caption">Standard Room</div>
+      </div>
+      <div class="gallery-item" data-cat="rooms" data-reveal>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800" alt="Deluxe room" />
+        <div class="gallery-caption">Deluxe Room</div>
+      </div>
+      <div class="gallery-item tall" data-cat="facilities" data-reveal>
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=800" alt="Swimming pool" />
+        <div class="gallery-caption">Rooftop Pool</div>
+      </div>
+      <div class="gallery-item wide" data-cat="restaurant" data-reveal>
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200" alt="Restaurant" />
+        <div class="gallery-caption">Fine Dining Restaurant</div>
+      </div>
+      <div class="gallery-item" data-cat="rooms" data-reveal>
+        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=800" alt="Executive suite" />
+        <div class="gallery-caption">Executive Suite</div>
+      </div>
+      <div class="gallery-item" data-cat="events" data-reveal>
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800" alt="Event hall" />
+        <div class="gallery-caption">Conference &amp; Events</div>
+      </div>
+      <div class="gallery-item wide" data-cat="facilities" data-reveal>
+        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1200" alt="Fitness centre" />
+        <div class="gallery-caption">Fitness Centre</div>
+      </div>
+      <div class="gallery-item tall" data-cat="exterior" data-reveal>
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=800" alt="Hotel entrance" />
+        <div class="gallery-caption">Hotel Entrance</div>
+      </div>
+      <div class="gallery-item" data-cat="rooms" data-reveal>
+        <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=800" alt="Family room" />
+        <div class="gallery-caption">Family Room</div>
+      </div>
+      <div class="gallery-item" data-cat="restaurant" data-reveal>
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800" alt="Bar area" />
+        <div class="gallery-caption">Lounge Bar</div>
+      </div>
+      <div class="gallery-item wide" data-cat="facilities" data-reveal>
+        <img src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?q=80&w=1200" alt="Spa" />
+        <div class="gallery-caption">Spa &amp; Wellness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span class="current-year"></span> Palace City Hotel. All rights reserved.</span>
+      <span><a href="admin/login.html">Admin Login</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

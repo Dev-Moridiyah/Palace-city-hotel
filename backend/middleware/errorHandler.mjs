@@ -1,0 +1,42 @@
+// Centralised error handler. Any error passed to next(err) ends up here.
+const errorHandler = (err, req, res, next) => {
+  console.error(err.stack);
+
+  let statusCode = err.statusCode || (res.statusCode !== 200 ? res.statusCode : 500);
+  let message = err.message || 'Server error';
+
+  // Mongoose bad ObjectId
+  if (err.name === 'CastError' && err.kind === 'ObjectId') {
+    statusCode = 404;
+    message = 'Resource not found';
+  }
+
+  // Mongoose validation error
+  if (err.name === 'ValidationError') {
+    statusCode = 400;
+    message = Object.values(err.errors)
+      .map((val) => val.message)
+      .join(', ');
+  }
+
+  // Mongoose duplicate key
+  if (err.code === 11000) {
+    statusCode = 400;
+    const field = Object.keys(err.keyValue || {})[0];
+    message = `${field ? field : 'Field'} already exists`;
+  }
+
+  res.status(statusCode).json({
+    success: false,
+    message,
+  });
+};
+
+const notFound = (req, res, next) => {
+  res.status(404);
+  next(new Error(`Route not found: ${req.originalUrl}`));
+};
+
+export { errorHandler, notFound };
+
+export default { errorHandler, notFound };
